@@ -5,32 +5,32 @@ import "../Components/Tablet.css";
 import { useEffect } from "react";
 
 export default function Table() {
-  const [items, setItems] = useState([
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
-    22, 23, 24, 25,
-  ]);
   const [column, setColumn] = useState(5);
   const [row, setRow] = useState(5);
+  const [kacheln, setKacheln] = useState(column * row);
+
+  console.log({ kacheln });
+  console.log({ column }, { row });
   const [gap, setGap] = useState(0);
 
-  const [item, setItem] = useState(16);
+  //const [item, setItem] = useState(16);
+  const [itemArray, setItemArray] = useState([]);
 
-  const [itemTest, setItemTest] = useState([]);
-  console.log({ itemTest });
+  console.log({ itemArray });
 
   useEffect(() => {
-    setItem(row * column);
-    for (let index = 1; index < item; index++) {
-      const element = [index];
-      itemTest.push(element);
-    }
+    setKacheln(column * row);
   }, [row, column]);
 
-  console.log({ item });
-  // useeffect = Colomn * row = anzahl
+  useEffect(() => {
+    setItemArray([]);
+    for (let index = 0; index < kacheln; index++) {
+      setItemArray((value) => [...value, index]);
+    }
+  }, [kacheln]);
 
   const handleSelectedItemUnmount = () => {
-    console.log("item unmount");
+    //console.log("item unmount");
   };
 
   const handleSelecting = (items) => {
@@ -50,17 +50,19 @@ export default function Table() {
       <input
         placeholder="Colums anzahl..."
         type="number"
-        onChange={(e) => setColumn(e.target.value)}
+        value={column}
+        onChange={(e) => setColumn(Number(e.target.value))}
       />
       <input
         placeholder="Row anzahl..."
         type="number"
-        onChange={(e) => setRow(e.target.value)}
+        value={row}
+        onChange={(e) => setRow(Number(e.target.value))}
       />
       <input
         placeholder="GAP in px eingeben..."
         type="number"
-        onChange={(e) => setGap(e.target.value)}
+        onChange={(e) => setGap(Number(e.target.value))}
       />
       <div>
         <SelectableGroup
@@ -80,13 +82,7 @@ export default function Table() {
             gridTemplateRows: `repeat(${row}, 1fr)`,
           }}
         >
-          {console.log({ column })}
-          {/* {Array(column)
-            .fill(column)
-            .map((index) => (
-              <Box key={index} num={index} />
-            ))} */}
-          {items.map((index) => (
+          {itemArray.map((index) => (
             <Box key={index} />
           ))}
         </SelectableGroup>
