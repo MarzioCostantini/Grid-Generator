@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { SelectableGroup } from "react-selectable-fast";
 import Box from "./Box";
 import "../Components/Tablet.css";
+import { useEffect } from "react";
 
 export default function Table() {
   const [items, setItems] = useState([
@@ -9,16 +10,31 @@ export default function Table() {
     22, 23, 24, 25,
   ]);
   const [column, setColumn] = useState(5);
-  const [row, setRow] = useState(12);
+  const [row, setRow] = useState(5);
   const [gap, setGap] = useState(0);
 
+  const [item, setItem] = useState(16);
+
+  const [itemTest, setItemTest] = useState([]);
+  console.log({ itemTest });
+
+  useEffect(() => {
+    setItem(row * column);
+    for (let index = 1; index < item; index++) {
+      const element = [index];
+      itemTest.push(element);
+    }
+  }, [row, column]);
+
+  console.log({ item });
   // useeffect = Colomn * row = anzahl
 
   const handleSelectedItemUnmount = () => {
     console.log("item unmount");
   };
+
   const handleSelecting = (items) => {
-    console.log("selecting:", items);
+    //console.log("selecting:", items);
   };
 
   const handleSelectionFinish = (items) => {
