@@ -10,8 +10,10 @@ export default function Table() {
   const [kacheln, setKacheln] = useState(column * row);
 
   console.log({ kacheln });
-  console.log({ column }, { row });
-  const [gap, setGap] = useState(0);
+  const [gapColumn, setGapColumn] = useState(0);
+  const [gapRow, setGapRow] = useState(0);
+
+  console.log({ column }, { row }, { gapColumn }, { gapRow });
 
   //const [item, setItem] = useState(16);
   const [itemArray, setItemArray] = useState([]);
@@ -38,10 +40,10 @@ export default function Table() {
   };
 
   const handleSelectionFinish = (items) => {
-    console.log("finish selecting:", items);
+    //console.log("finish selecting:", items);
   };
   const handleSelectionClear = (items) => {
-    console.log("selection cleared", items);
+    // console.log("selection cleared", items);
   };
 
   return (
@@ -60,9 +62,14 @@ export default function Table() {
         onChange={(e) => setRow(Number(e.target.value))}
       />
       <input
-        placeholder="GAP in px eingeben..."
+        placeholder="GAP Column in px eingeben..."
         type="number"
-        onChange={(e) => setGap(Number(e.target.value))}
+        onChange={(e) => setGapColumn(Number(e.target.value))}
+      />
+      <input
+        placeholder="GAP Row in px eingeben..."
+        type="number"
+        onChange={(e) => setGapRow(Number(e.target.value))}
       />
       <div>
         <SelectableGroup
@@ -80,6 +87,8 @@ export default function Table() {
             display: "grid",
             gridTemplateColumns: `repeat(${column}, 1fr)`,
             gridTemplateRows: `repeat(${row}, 1fr)`,
+            columnGap: `${gapColumn}px`,
+            rowGap: `${gapRow}px`,
           }}
         >
           {itemArray.map((index) => (
