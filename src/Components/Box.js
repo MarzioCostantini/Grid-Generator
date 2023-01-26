@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import { createSelectable } from "react-selectable-fast";
 
 function Box(props) {
@@ -8,11 +9,14 @@ function Box(props) {
       ref={selectableRef}
       className="box"
       style={{
-        background: isSelected ? "crimson" : isSelecting ? "blue" : "gray",
+        background: isSelected
+          ? `#${props.color}`
+          : isSelecting
+          ? "blue"
+          : "gray",
       }}
     >
-      {" "}
-      <p>{props.key}</p>
+      <p>{props.index}</p>
     </div>
   );
 }

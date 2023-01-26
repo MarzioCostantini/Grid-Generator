@@ -9,16 +9,21 @@ export default function Table() {
   const [row, setRow] = useState(5);
   const [kacheln, setKacheln] = useState(column * row);
 
-  console.log({ kacheln });
   const [gapColumn, setGapColumn] = useState(0);
   const [gapRow, setGapRow] = useState(0);
 
-  console.log({ column }, { row }, { gapColumn }, { gapRow });
-
-  //const [item, setItem] = useState(16);
   const [itemArray, setItemArray] = useState([]);
 
+  const [color, setColor] = useState();
+
+  console.log({ kacheln });
+  console.log({ column }, { row }, { gapColumn }, { gapRow });
   console.log({ itemArray });
+
+  const getRandomColor = () => {
+    let randomColor = Math.floor(Math.random() * 16777215).toString(16);
+    setColor(randomColor);
+  };
 
   useEffect(() => {
     setKacheln(column * row);
@@ -32,7 +37,7 @@ export default function Table() {
   }, [kacheln]);
 
   const handleSelectedItemUnmount = () => {
-    //console.log("item unmount");
+    // console.log("item unmount");
   };
 
   const handleSelecting = (items) => {
@@ -40,7 +45,8 @@ export default function Table() {
   };
 
   const handleSelectionFinish = (items) => {
-    //console.log("finish selecting:", items);
+    getRandomColor();
+    console.log("finish selecting:", items);
   };
   const handleSelectionClear = (items) => {
     // console.log("selection cleared", items);
@@ -48,7 +54,7 @@ export default function Table() {
 
   return (
     <div className="App">
-      <button onClick={handleSelectionClear}> Clear</button>
+      <button onClick={handleSelectionClear}> RESTE GRID</button>
       <input
         placeholder="Colums anzahl..."
         type="number"
@@ -92,7 +98,7 @@ export default function Table() {
           }}
         >
           {itemArray.map((index) => (
-            <Box key={index} />
+            <Box key={index} index={index} color={color} />
           ))}
         </SelectableGroup>
       </div>
