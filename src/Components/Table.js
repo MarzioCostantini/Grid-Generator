@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { SelectableGroup } from "react-selectable-fast";
+import { SelectableGroup, DeselectAll } from "react-selectable-fast";
 import Box from "./Box";
 import "../Components/Tablet.css";
 import { useEffect } from "react";
@@ -54,7 +54,9 @@ export default function Table() {
 
   return (
     <div className="App">
-      <button onClick={handleSelectionClear}> RESTE GRID</button>
+      <DeselectAll className="selectable-button">
+        <button>Clear selection</button>
+      </DeselectAll>
       <input
         placeholder="Colums anzahl..."
         type="number"
