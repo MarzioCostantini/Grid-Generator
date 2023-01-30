@@ -16,9 +16,22 @@ export default function Table() {
 
   const [color, setColor] = useState();
 
-  console.log({ kacheln });
-  console.log({ column }, { row }, { gapColumn }, { gapRow });
-  console.log({ itemArray });
+  const [selectedItems, setSelectedItems] = useState([]);
+  // const [selectCount, setSelectCount] = useState(0);
+
+  console.log({ selectedItems });
+  //console.log({ selectCount });
+
+  /*
+      LOGIC VON Grid-area
+
+      Im Beispiel "grid-area: 1 / 1 / 3 / 3;" bedeutet dies:
+
+      grid-row-start: 1
+      grid-column-start: 1
+      grid-row-end: 3
+      grid-column-end: 3
+*/
 
   const getRandomColor = () => {
     let randomColor = Math.floor(Math.random() * 16777215).toString(16);
@@ -46,8 +59,22 @@ export default function Table() {
 
   const handleSelectionFinish = (items) => {
     getRandomColor();
-    console.log("finish selecting:", items);
+
+    //console.log("finish selecting:", items);
+
+    // Schaut welche Elemente auf einmal Ausgewählt wurden und  pusht die zahlen erst in ein Array Object, dann in den kompletten State
+    let selectedIndexArray = [];
+    for (let i = 0; i < items.length; i++) {
+      let selectedIndex = items[i].props.index;
+      selectedIndexArray.push(selectedIndex);
+    }567898
+    const newObjectofSelectedItems = {
+      selctedItem: selectedIndexArray,
+      colorHex: color,
+    };
+    setSelectedItems([...selectedItems, newObjectofSelectedItems]);
   };
+
   const handleSelectionClear = (items) => {
     // console.log("selection cleared", items);
   };
