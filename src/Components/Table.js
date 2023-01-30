@@ -17,10 +17,10 @@ export default function Table() {
   const [color, setColor] = useState();
 
   const [selectedItems, setSelectedItems] = useState([]);
-  // const [selectCount, setSelectCount] = useState(0);
 
   console.log({ selectedItems });
-  //console.log({ selectCount });
+
+  console.log({ DeselectAll });
 
   /*
       LOGIC VON Grid-area
@@ -35,7 +35,7 @@ export default function Table() {
 
   const getRandomColor = () => {
     let randomColor = Math.floor(Math.random() * 16777215).toString(16);
-    setColor(randomColor);
+    return randomColor;
   };
 
   useEffect(() => {
@@ -58,18 +58,19 @@ export default function Table() {
   };
 
   const handleSelectionFinish = (items) => {
-    getRandomColor();
+    const color = getRandomColor();
 
     //console.log("finish selecting:", items);
 
-    // Schaut welche Elemente auf einmal Ausgewählt wurden und  pusht die zahlen erst in ein Array Object, dann in den kompletten State
-    let selectedIndexArray = [];
-    for (let i = 0; i < items.length; i++) {
-      let selectedIndex = items[i].props.index;
-      selectedIndexArray.push(selectedIndex);
-    }567898
+    const startIdx = selectedItems
+      .map(({ selectedItem }) => selectedItem.length)
+      .reduce((sum, length) => sum + length, 0);
+
+    let selectedIndexArray = items
+      .slice(startIdx)
+      .map((item) => item.props.index);
     const newObjectofSelectedItems = {
-      selctedItem: selectedIndexArray,
+      selectedItem: selectedIndexArray,
       colorHex: color,
     };
     setSelectedItems([...selectedItems, newObjectofSelectedItems]);
@@ -115,7 +116,7 @@ export default function Table() {
           globalMouse={false}
           allowClickWithoutSelected={false}
           duringSelection={handleSelecting}
-          onSelectionClear={handleSelectionClear}
+          //onSelectionClear={handleSelectionClear}
           onSelectionFinish={handleSelectionFinish}
           onSelectedItemUnmount={handleSelectedItemUnmount}
           style={{
