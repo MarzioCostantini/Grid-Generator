@@ -111,12 +111,11 @@ export default function Table() {
         <SelectableGroup
           className="main"
           clickClassName="tick"
-          enableDeselect
+          //enableDeselect
           tolerance={0}
           globalMouse={false}
           allowClickWithoutSelected={false}
           duringSelection={handleSelecting}
-          //onSelectionClear={handleSelectionClear}
           onSelectionFinish={handleSelectionFinish}
           onSelectedItemUnmount={handleSelectedItemUnmount}
           style={{
@@ -127,9 +126,13 @@ export default function Table() {
             rowGap: `${gapRow}px`,
           }}
         >
-          {itemArray.map((index) => (
-            <Box key={index} index={index} color={color} />
-          ))}
+          {itemArray.map((index) => {
+            const selected = selectedItems.find(({ selectedItem }) =>
+              selectedItem.includes(index)
+            );
+            const color = selected ? selected.colorHex : undefined;
+            return <Box key={index} index={index} color={color} />;
+          })}
         </SelectableGroup>
       </div>
     </div>

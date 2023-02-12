@@ -4,6 +4,7 @@ import { createSelectable } from "react-selectable-fast";
 
 function Box(props) {
   const { selectableRef, isSelected, isSelecting } = props;
+
   return (
     <div
       ref={selectableRef}
