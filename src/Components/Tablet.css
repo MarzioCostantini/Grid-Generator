@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .main {
   background: #333;
   width: 100vw;
@@ -15,4 +20,23 @@
   cursor: crosshair;
   background: none;
   border: 1px dashed orange;
+}
+
+.output {
+  background-color: rgb(27, 27, 27);
+  color: white;
+  padding: 20px;
+}
+.output article {
+  border: 1px solid orange;
+  padding: 5px 30px;
+}
+.output h3 {
+  color: orange;
+  margin: 15px 0;
+}
+
+.output p {
+  margin-left: 30px;
+  margin-bottom: 10px;
 }

@@ -8,6 +8,7 @@ export default function Table() {
   const [column, setColumn] = useState(5);
   const [row, setRow] = useState(5);
   const [kacheln, setKacheln] = useState(column * row);
+  const [id, setId] = useState(1);
 
   const [gapColumn, setGapColumn] = useState(0);
   const [gapRow, setGapRow] = useState(0);
@@ -19,6 +20,7 @@ export default function Table() {
   const [selectedItems, setSelectedItems] = useState([]);
 
   console.log({ selectedItems });
+  console.log("test", selectedItems);
 
   console.log({ DeselectAll });
 
@@ -70,10 +72,12 @@ export default function Table() {
       .slice(startIdx)
       .map((item) => item.props.index);
     const newObjectofSelectedItems = {
+      id: id,
       selectedItem: selectedIndexArray,
       colorHex: color,
     };
     setSelectedItems([...selectedItems, newObjectofSelectedItems]);
+    setId(id + 1);
   };
 
   const handleSelectionClear = (items) => {
@@ -135,6 +139,30 @@ export default function Table() {
           })}
         </SelectableGroup>
       </div>
+
+      <section className="output">
+        <h1>Output:</h1>
+        <article>
+          <div>
+            <h3>.parent</h3>
+            <p>display: grid;</p>
+            <p>grid-template-columns: repeat({column}, 1fr);</p>
+            <p>grid-template-row: repeat({row}, 1fr);</p>
+            <p>grid-column-gap: {gapColumn}px;</p>
+            <p>grid-row-gap: {gapRow}px;</p>
+          </div>
+
+          <div>
+            {selectedItems.map((index) => (
+              <div key={index.id}>
+                <h3>.child{index.id}</h3>
+                <p>grid-area: 1 / 1 / 3 / 6;</p>
+              </div>
+            ))}
+          </div>
+        </article>
+        <button> Copy Code</button>
+      </section>
     </div>
   );
 }
