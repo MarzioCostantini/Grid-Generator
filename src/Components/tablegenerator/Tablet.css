@@ -1,19 +1,7 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-
-.main {
-  background: #333;
-  width: 100vw;
-  padding: 20px;
-}
-
 .box {
   width: 100%;
   height: 50px;
   border: 1px solid;
-  transition: background 100ms ease;
 }
 
 .selectable-selectbox {

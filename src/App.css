@@ -1,3 +1,36 @@
-.box {
-  background-color: green;
+/* Add Fonts */
+
+@font-face {
+  font-family: "Cario";
+  src: local("Cario"), url("./assets/font/Cairo-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "CarioBold";
+  src: local("Cario"), url("./assets/font/Cairo-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "CarioLight";
+  src: local("Cario"), url("./assets/font/Cairo-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "RobotoMono";
+  src: local("Cario"),
+    url("./assets/font/RobotoMono-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "RobotoMonoBold";
+  src: local("Cario"),
+    url("./assets/font/RobotoMono-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "RobotoMonoLight";
+  src: local("Cario"),
+    url("./assets/font/RobotoMono-Light.ttf") format("truetype");
+}
+
+/* Basic Styles */
+
+h1 {
+  font-size: clamp(1.5rem, 2.5vw, 4rem);
+  font-family: Cario;
 }

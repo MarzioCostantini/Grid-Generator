@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { SelectableGroup, DeselectAll } from "react-selectable-fast";
 import Box from "./Box";
-import "../Components/Tablet.css";
+import "./Tablet.css";
 import { useEffect } from "react";
 
 function gridAreaString(selectedCellIndezies, tableColumns) {
@@ -34,17 +34,6 @@ export default function Table() {
   const [itemArray, setItemArray] = useState([]);
 
   const [selectedItems, setSelectedItems] = useState([]);
-
-  /*
-      LOGIC VON Grid-area
-
-      Im Beispiel "grid-area: 1 / 1 / 3 / 3;" bedeutet dies:
-
-      grid-row-start: 1
-      grid-column-start: 1
-      grid-row-end: 3
-      grid-column-end: 3
-*/
 
   const getRandomColor = () => {
     let randomColor = Math.floor(Math.random() * 16777215).toString(16);
