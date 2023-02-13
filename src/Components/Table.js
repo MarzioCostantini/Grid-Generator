@@ -16,6 +16,7 @@ function gridAreaString(selectedCellIndezies, tableColumns) {
   const first = cells[0];
   const last = cells[cells.length - 1];
 
+  console.log({ first, last });
   const gridAreaStart = `${first.row} / ${first.column}`;
   const gridAreaEnd = `${last.row + 1} / ${last.column + 1}`;
   return `${gridAreaStart} / ${gridAreaEnd}`;
@@ -81,6 +82,11 @@ export default function Table() {
     let selectedIndexArray = items
       .slice(startIdx)
       .map((item) => item.props.index);
+
+    if (!selectedIndexArray || selectedIndexArray.length === 0) {
+      return;
+    }
+
     const newObjectofSelectedItems = {
       id: id,
       selectedItem: selectedIndexArray,
@@ -166,10 +172,10 @@ export default function Table() {
           </div>
 
           <div>
-            {selectedItems.map((index) => (
-              <div key={index.id}>
-                <h3>.child{index.id}</h3>
-                <p>grid-area: 1 / 1 / 3 / 6;</p>
+            {selectedItems.map((selectedItem) => (
+              <div key={selectedItem.id}>
+                <h3>.child{selectedItem.id}</h3>
+                <p>grid-area: {selectedItem.gridAreaString};</p>
               </div>
             ))}
           </div>
