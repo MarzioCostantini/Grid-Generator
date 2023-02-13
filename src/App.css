@@ -79,7 +79,7 @@ h6 {
 }
 p {
   font-family: Cario, Arial, Helvetica, sans-serif;
-  font-size: clamp(1.6rem, 2.5vw, 2rem);
+  font-size: clamp(1.6rem, 2.5vw, 1.8rem);
 }
 a {
   text-decoration: none;

@@ -2,9 +2,7 @@ svg {
   stroke: var(--text-light);
 }
 .active {
-  color: var(--main-color);
-  border-right: 4px solid var(--main-color);
-  border-radius: 3px;
+  color: var(--main-color) !important;
 }
 .active svg {
   color: var(--main-color);
@@ -28,10 +26,12 @@ svg {
   gap: 15px;
   margin: 0 0 3rem 0;
 }
+
 .main-text {
   margin: 0 0 1.5rem 0;
   font-weight: 900;
   color: var(--text-light);
+  letter-spacing: 2px;
 }
 
 .nav-item {
@@ -39,6 +39,20 @@ svg {
   align-items: center;
   gap: 15px;
   margin: 3rem 0 3rem 0;
+  min-width: 200px;
+  position: relative;
+  color: var(--text-light);
+}
+
+.active::after {
+  content: "";
+  display: block;
+  height: 30px;
+  width: 5px;
+  position: absolute;
+  right: 0;
+  background-color: var(--main-color);
+  border-radius: 20px;
 }
 
 .coffee {
@@ -50,12 +64,12 @@ svg {
   padding: 30px;
   border-radius: 30px;
   color: var(--white);
-  margin: 0 0 6rem 0;
+  margin: 0 0 3rem 0;
 }
 
 .coffee h4 {
-  margin: 20px 0;
-  font-size: clamp(2.6rem, 2.4vw, 3.2rem);
+  margin: 15px 0;
+  font-size: clamp(2.4rem, 1.8vw, 2.6rem);
 }
 
 .bottom-element article p,
