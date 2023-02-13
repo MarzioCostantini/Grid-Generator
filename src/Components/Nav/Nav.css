@@ -1,0 +1,72 @@
+svg {
+  stroke: var(--text-light);
+}
+.active {
+  color: var(--main-color);
+  border-right: 4px solid var(--main-color);
+  border-radius: 3px;
+}
+.active svg {
+  color: var(--main-color);
+  stroke: var(--main-color);
+}
+
+.nav-wrapper {
+  height: 100vh;
+  background-color: rgb(222, 222, 222);
+  width: 350px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  gap: 15px;
+  margin: 0 0 3rem 0;
+}
+.main-text {
+  margin: 0 0 1.5rem 0;
+  font-weight: 900;
+  color: var(--text-light);
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin: 3rem 0 3rem 0;
+}
+
+.coffee {
+  background: linear-gradient(
+    150deg,
+    rgba(94, 207, 255, 1) 0%,
+    rgba(100, 246, 255, 1) 100%
+  );
+  padding: 30px;
+  border-radius: 30px;
+  color: var(--white);
+  margin: 0 0 6rem 0;
+}
+
+.coffee h4 {
+  margin: 20px 0;
+  font-size: clamp(2.6rem, 2.4vw, 3.2rem);
+}
+
+.bottom-element article p,
+.bottom-element article a {
+  color: var(--text-light);
+}
+
+.bottom-element article a {
+  padding: 0 5px;
+  font-weight: bold;
+}
+.bottom-element article p:first-child {
+  font-weight: 900;
+}
