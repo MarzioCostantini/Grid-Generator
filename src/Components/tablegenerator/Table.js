@@ -93,7 +93,7 @@ export default function Table() {
   };
 
   return (
-    <div className="App">
+    <main className="content">
       <DeselectAll className="selectable-button">
         <button>Clear selection</button>
       </DeselectAll>
@@ -173,6 +173,6 @@ export default function Table() {
         </article>
         <button> Copy Code</button>
       </section>
-    </div>
+    </main>
   );
 }
