@@ -4,10 +4,27 @@ import Box from "./Box";
 import "../Components/Tablet.css";
 import { useEffect } from "react";
 
+function gridAreaString(selectedCellIndezies, tableColumns) {
+  const cells = selectedCellIndezies
+    .sort((index1, index2) => index1 - index2)
+    .map((cellIdx) => ({
+      cellIdx,
+      row: Math.ceil((cellIdx + 1) / tableColumns),
+      column: cellIdx - Math.floor(cellIdx / tableColumns) * tableColumns + 1,
+    }));
+
+  const first = cells[0];
+  const last = cells[cells.length - 1];
+
+  const gridAreaStart = `${first.row} / ${first.column}`;
+  const gridAreaEnd = `${last.row + 1} / ${last.column + 1}`;
+  return `${gridAreaStart} / ${gridAreaEnd}`;
+}
+
 export default function Table() {
-  const [column, setColumn] = useState(5);
-  const [row, setRow] = useState(5);
-  const [kacheln, setKacheln] = useState(column * row);
+  const [columns, setColumn] = useState(5);
+  const [rows, setRow] = useState(5);
+  const [kacheln, setKacheln] = useState(columns * rows);
   const [id, setId] = useState(1);
 
   const [gapColumn, setGapColumn] = useState(0);
@@ -15,14 +32,7 @@ export default function Table() {
 
   const [itemArray, setItemArray] = useState([]);
 
-  const [color, setColor] = useState();
-
   const [selectedItems, setSelectedItems] = useState([]);
-
-  console.log({ selectedItems });
-  console.log("test", selectedItems);
-
-  console.log({ DeselectAll });
 
   /*
       LOGIC VON Grid-area
@@ -41,8 +51,8 @@ export default function Table() {
   };
 
   useEffect(() => {
-    setKacheln(column * row);
-  }, [row, column]);
+    setKacheln(columns * rows);
+  }, [rows, columns]);
 
   useEffect(() => {
     setItemArray([]);
@@ -74,11 +84,14 @@ export default function Table() {
     const newObjectofSelectedItems = {
       id: id,
       selectedItem: selectedIndexArray,
+      gridAreaString: gridAreaString(selectedIndexArray, columns),
       colorHex: color,
     };
     setSelectedItems([...selectedItems, newObjectofSelectedItems]);
     setId(id + 1);
   };
+
+  console.log(selectedItems);
 
   const handleSelectionClear = (items) => {
     // console.log("selection cleared", items);
@@ -92,13 +105,13 @@ export default function Table() {
       <input
         placeholder="Colums anzahl..."
         type="number"
-        value={column}
+        value={columns}
         onChange={(e) => setColumn(Number(e.target.value))}
       />
       <input
         placeholder="Row anzahl..."
         type="number"
-        value={row}
+        value={rows}
         onChange={(e) => setRow(Number(e.target.value))}
       />
       <input
@@ -124,8 +137,8 @@ export default function Table() {
           onSelectedItemUnmount={handleSelectedItemUnmount}
           style={{
             display: "grid",
-            gridTemplateColumns: `repeat(${column}, 1fr)`,
-            gridTemplateRows: `repeat(${row}, 1fr)`,
+            gridTemplateColumns: `repeat(${columns}, 1fr)`,
+            gridTemplateRows: `repeat(${rows}, 1fr)`,
             columnGap: `${gapColumn}px`,
             rowGap: `${gapRow}px`,
           }}
@@ -146,8 +159,8 @@ export default function Table() {
           <div>
             <h3>.parent</h3>
             <p>display: grid;</p>
-            <p>grid-template-columns: repeat({column}, 1fr);</p>
-            <p>grid-template-row: repeat({row}, 1fr);</p>
+            <p>grid-template-columns: repeat({columns}, 1fr);</p>
+            <p>grid-template-row: repeat({rows}, 1fr);</p>
             <p>grid-column-gap: {gapColumn}px;</p>
             <p>grid-row-gap: {gapRow}px;</p>
           </div>
