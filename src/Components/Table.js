@@ -174,7 +174,9 @@ export default function Table() {
           <div>
             {selectedItems.map((selectedItem) => (
               <div key={selectedItem.id}>
-                <h3>.child{selectedItem.id}</h3>
+                <h3 style={{ color: `#${selectedItem.colorHex}` }}>
+                  .child{selectedItem.id}
+                </h3>
                 <p>grid-area: {selectedItem.gridAreaString};</p>
               </div>
             ))}
