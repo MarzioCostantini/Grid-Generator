@@ -11,7 +11,7 @@ svg {
 
 .nav-wrapper {
   grid-area: 1 / 1 / 13 / 3;
-  min-width: 330px;
+  min-width: 260px;
   padding: 30px;
   display: flex;
   flex-direction: column;
@@ -28,7 +28,7 @@ svg {
 }
 
 .logo h2 {
-  font-size: clamp(2.6rem, 2.5vw, 2.8rem);
+  font-size: clamp(2rem, 2vw, 2.8rem);
 }
 
 .main-text {
@@ -44,10 +44,15 @@ svg {
   display: flex;
   align-items: center;
   gap: 15px;
-  margin: 3rem 0 3rem 0;
+  margin: 2.2rem 0 2.2rem 0;
   min-width: 200px;
   position: relative;
   color: var(--text-light);
+}
+
+.nav-item svg {
+  height: auto;
+  width: 20px;
 }
 
 .active::after {
@@ -67,15 +72,15 @@ svg {
     rgba(94, 207, 255, 1) 0%,
     rgba(100, 246, 255, 1) 100%
   );
-  padding: 30px;
+  padding: 20px;
   border-radius: 30px;
   color: var(--white);
   margin: 0 0 3rem 0;
 }
 
 .coffee h4 {
-  margin: 15px 0;
-  font-size: clamp(2.4rem, 1.8vw, 2.6rem);
+  margin: 10px 0;
+  font-size: clamp(1.7rem, 1.1vw, 2.2rem);
 }
 
 .bottom-element article p,

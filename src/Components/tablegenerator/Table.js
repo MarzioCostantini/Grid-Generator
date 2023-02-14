@@ -4,6 +4,10 @@ import Box from "./Box";
 import "./Tablet.css";
 import { useEffect } from "react";
 
+import codeIcon from "../../assets/img/code_icon.svg";
+import Trashbin from "../../assets/img/Binn_icon";
+import Modal from "../ModalGrid/Modal";
+
 function gridAreaString(selectedCellIndezies, tableColumns) {
   const cells = selectedCellIndezies
     .sort((index1, index2) => index1 - index2)
@@ -16,7 +20,6 @@ function gridAreaString(selectedCellIndezies, tableColumns) {
   const first = cells[0];
   const last = cells[cells.length - 1];
 
-  console.log({ first, last });
   const gridAreaStart = `${first.row} / ${first.column}`;
   const gridAreaEnd = `${last.row + 1} / ${last.column + 1}`;
   return `${gridAreaStart} / ${gridAreaEnd}`;
@@ -34,6 +37,8 @@ export default function Table() {
   const [itemArray, setItemArray] = useState([]);
 
   const [selectedItems, setSelectedItems] = useState([]);
+
+  //MODAL BOX
 
   const getRandomColor = () => {
     let randomColor = Math.floor(Math.random() * 16777215).toString(16);
@@ -93,37 +98,56 @@ export default function Table() {
   };
 
   return (
-    <main className="content">
-      <DeselectAll className="selectable-button">
-        <button>Clear selection</button>
-      </DeselectAll>
-      <input
-        placeholder="Colums anzahl..."
-        type="number"
-        value={columns}
-        onChange={(e) => setColumn(Number(e.target.value))}
-      />
-      <input
-        placeholder="Row anzahl..."
-        type="number"
-        value={rows}
-        onChange={(e) => setRow(Number(e.target.value))}
-      />
-      <input
-        placeholder="GAP Column in px eingeben..."
-        type="number"
-        onChange={(e) => setGapColumn(Number(e.target.value))}
-      />
-      <input
-        placeholder="GAP Row in px eingeben..."
-        type="number"
-        onChange={(e) => setGapRow(Number(e.target.value))}
-      />
-      <div>
+    <main className="content grid-generator">
+      <section className="input-area">
+        <label for="column">Colums:</label>
+        <input
+          id="column"
+          type="number"
+          value={columns}
+          onChange={(e) => setColumn(Number(e.target.value))}
+        />
+        <label for="rows">Rows</label>
+        <input
+          id="rows"
+          type="number"
+          value={rows}
+          onChange={(e) => setRow(Number(e.target.value))}
+        />
+        <label for="gapColumn">Column GAP in PX</label>
+        <input
+          value={gapColumn}
+          type="number"
+          onChange={(e) => setGapColumn(Number(e.target.value))}
+        />
+        <label for="gapRow">Row GAP in PX</label>
+        <input
+          value={gapRow}
+          id="gapRow"
+          type="number"
+          onChange={(e) => setGapRow(Number(e.target.value))}
+        />
+        <div>
+          <Modal
+            selectedItems={selectedItems}
+            rows={rows}
+            columns={columns}
+            gapColumn={gapColumn}
+            gapRow={gapRow}
+          />
+          <DeselectAll className="selectable-button">
+            <button className="btn-border">
+              <Trashbin /> Reset Grid
+            </button>
+          </DeselectAll>
+        </div>
+      </section>
+
+      <section className="grid-area">
         <SelectableGroup
           className="main"
           clickClassName="tick"
-          //enableDeselect
+          // enableDeselect
           tolerance={0}
           globalMouse={false}
           allowClickWithoutSelected={false}
@@ -146,9 +170,9 @@ export default function Table() {
             return <Box key={index} index={index} color={color} />;
           })}
         </SelectableGroup>
-      </div>
+      </section>
 
-      <section className="output">
+      {/* <section className="output">
         <h1>Output:</h1>
         <article>
           <div>
@@ -160,19 +184,10 @@ export default function Table() {
             <p>grid-row-gap: {gapRow}px;</p>
           </div>
 
-          <div>
-            {selectedItems.map((selectedItem) => (
-              <div key={selectedItem.id}>
-                <h3 style={{ color: `#${selectedItem.colorHex}` }}>
-                  .child{selectedItem.id}
-                </h3>
-                <p>grid-area: {selectedItem.gridAreaString};</p>
-              </div>
-            ))}
-          </div>
+          
         </article>
-        <button> Copy Code</button>
-      </section>
+      
+      </section> */}
     </main>
   );
 }

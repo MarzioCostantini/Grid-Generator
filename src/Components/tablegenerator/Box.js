@@ -1,4 +1,5 @@
 import React from "react";
+import "./Tablet.css";
 
 import { createSelectable } from "react-selectable-fast";
 
@@ -13,12 +14,10 @@ function Box(props) {
         background: isSelected
           ? `#${props.color}`
           : isSelecting
-          ? "blue"
-          : "gray",
+          ? "gray"
+          : "background: linear-gradient(#e66465, #9198e5);",
       }}
-    >
-      <p>{props.index}</p>
-    </div>
+    ></div>
   );
 }
 
