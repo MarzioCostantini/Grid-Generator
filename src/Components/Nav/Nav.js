@@ -45,7 +45,7 @@ const Nav = () => {
         <a
           target="_blank"
           rel="noreferrer"
-          href="https://github.com/MarzioCostantini"
+          href="https://www.paypal.com/paypalme/marziocostantini"
         >
           <div className="coffee">
             <img src={dotsIcon} alt="icon" />
