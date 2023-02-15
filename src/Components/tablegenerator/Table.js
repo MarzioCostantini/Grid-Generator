@@ -87,7 +87,7 @@ export default function Table() {
   };
 
   return (
-    <main className="content grid-generator">
+    <main className=" grid-generator">
       <section className="input-area">
         <label htmlFor="column">Colums</label>
         <input

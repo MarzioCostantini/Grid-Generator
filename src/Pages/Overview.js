@@ -1,17 +1,17 @@
+import ComingSoon from "../Components/comingSoon/ComingSoon";
 import Header from "../Components/Header/Header";
 import Nav from "../Components/Nav/Nav";
-import Table from "../Components/tablegenerator/Table";
 
-const GridGenerator = () => {
+const Overview = () => {
   return (
     <>
       <Nav />
       <Header />
       <div className="content">
-        <Table />
+        <ComingSoon />
       </div>
     </>
   );
 };
 
-export default GridGenerator;
+export default Overview;

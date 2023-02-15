@@ -26,17 +26,17 @@ const Nav = () => {
             <OverviewIcon />
             <h3>Overview</h3>
           </NavLink>
-          <NavLink to="grid-generator" className="nav-item">
+          <NavLink to="/grid-generator" className="nav-item">
             <GridIcon />
             <h3>Grid Generator</h3>
           </NavLink>
-          <NavLink to="shadow-generator" className="nav-item">
+          <NavLink to="/shadow-generator" className="nav-item">
             <ShadowIcon />
             <h3>Shadow Generator</h3>
           </NavLink>
-          <NavLink to="linear-gradient" className="nav-item">
+          <NavLink to="/gradient-generator" className="nav-item">
             <LineaIcon />
-            <h3>Linear Gradient Generator</h3>
+            <h3>Gradient Generator</h3>
           </NavLink>
         </nav>
       </div>
