@@ -33,7 +33,7 @@ export default function Modal({
   //     }
 
   useEffect(() => {
-    const childStyles = selectedItems.map(
+    const gridChilds = selectedItems.map(
       (item) => `.child${item.id} { grid-area: ${item.gridAreaString}; }\n`
     );
     const gridTemplate = `.parent { 
@@ -43,7 +43,7 @@ export default function Modal({
           grid-column-gap: ${gapColumn}px; 
           grid-row-gap: ${gapRow}px; 
         }
-        ${childStyles.join(" ")}
+        ${gridChilds.join(" ")}
         `;
     setGridTemplate(gridTemplate);
   }, [selectedItems, columns, rows, gapColumn, gapRow]);
@@ -119,7 +119,7 @@ export default function Modal({
               </div>
             </article>
             <div className="btn-copy-area">
-              {copied ? <p>Copied</p> : null}
+              {copied ? <p>Copied!</p> : null}
               <CopyToClipboard
                 text={gridTemplate}
                 onCopy={() => setCopied(true)}
