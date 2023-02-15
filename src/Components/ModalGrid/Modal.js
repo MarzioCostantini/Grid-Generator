@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./Modal.css";
-import closeIcon from "../../assets/img/close_icon.svg";
 import codeIcon from "../../assets/img/code_icon.svg";
 import copyIcon from "../../assets/img/copy_icon.svg";
 import { CopyToClipboard } from "react-copy-to-clipboard";
+import CloseIcon from "../../assets/img/Close_Icon";
+import CodeIcon from "../../assets/img/Code_icon";
 
 export default function Modal({
   selectedItems,
@@ -37,12 +38,10 @@ export default function Modal({
     setCopied(false);
   };
 
-  //   console.log({ gridTemplate });
-
   return (
     <>
       <button onClick={toggleModal} className="btn-full">
-        <img src={codeIcon} alt="Icon" /> Get Code
+        <CodeIcon /> Get Code
       </button>
 
       {modal && (
@@ -113,12 +112,9 @@ export default function Modal({
               </CopyToClipboard>
             </div>
 
-            <img
-              className="close-modal"
-              onClick={toggleModal}
-              src={closeIcon}
-              alt="Icon"
-            />
+            <div onClick={toggleModal} className="close-modal">
+              <CloseIcon />
+            </div>
           </div>
         </div>
       )}
