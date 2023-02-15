@@ -161,7 +161,7 @@ button {
 }
 
 .btn-full:hover {
-  background-color: var(--hover);
+  background-color: var(--secondary-color);
   transition: all 0.3s;
 }
 .btn-border {
@@ -179,15 +179,15 @@ button {
 }
 
 .btn-border:hover {
-  border: 2px solid var(--hover);
-  background-color: var(--hover);
-  color: var(--white);
+  border: 2px solid red;
+  /* background-color: var(--secondary-color); */
+  color: red;
   transition: all 0.3s;
 }
 
 .btn-border:hover svg {
   transition: all 0.3s;
-  stroke: var(--white);
+  stroke: red;
 }
 button img {
   height: 17px;

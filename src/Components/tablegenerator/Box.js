@@ -12,10 +12,10 @@ function Box(props) {
       className="box"
       style={{
         background: isSelected
-          ? `#${props.color}`
+          ? `${props.color}`
           : isSelecting
-          ? "gray"
-          : "background: linear-gradient(#e66465, #9198e5);",
+          ? ""
+          : `background: linear-gradient(#e66465, #9198e5);`,
       }}
     ></div>
   );

@@ -62,7 +62,7 @@ export default function Modal({
               <div>
                 {selectedItems.map((selectedItem) => (
                   <div className="output-childs" key={selectedItem.id}>
-                    <h3 style={{ color: `#${selectedItem.colorHex}` }}>
+                    <h3 style={{ color: `${selectedItem.colorHex}` }}>
                       .child{selectedItem.id}
                       <span>
                         <span className="klammern">&#123;</span>{" "}

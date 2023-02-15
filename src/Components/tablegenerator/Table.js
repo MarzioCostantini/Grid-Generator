@@ -4,7 +4,6 @@ import Box from "./Box";
 import "./Tablet.css";
 import { useEffect } from "react";
 
-import codeIcon from "../../assets/img/code_icon.svg";
 import Trashbin from "../../assets/img/Binn_icon";
 import Modal from "../ModalGrid/Modal";
 
@@ -38,12 +37,14 @@ export default function Table() {
 
   const [selectedItems, setSelectedItems] = useState([]);
 
-  //MODAL BOX
-
-  const getRandomColor = () => {
-    let randomColor = Math.floor(Math.random() * 16777215).toString(16);
-    return randomColor;
-  };
+  function generateRandomColor() {
+    var letters = "0123456789ABCDEF".split("");
+    var color = "#";
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.round(Math.random() * 15)];
+    }
+    return color;
+  }
 
   useEffect(() => {
     setKacheln(columns * rows);
@@ -56,18 +57,8 @@ export default function Table() {
     }
   }, [kacheln]);
 
-  const handleSelectedItemUnmount = () => {
-    // console.log("item unmount");
-  };
-
-  const handleSelecting = (items) => {
-    //console.log("selecting:", items);
-  };
-
   const handleSelectionFinish = (items) => {
-    const color = getRandomColor();
-
-    //console.log("finish selecting:", items);
+    const color = generateRandomColor();
 
     const startIdx = selectedItems
       .map(({ selectedItem }) => selectedItem.length)
@@ -94,7 +85,7 @@ export default function Table() {
   console.log(selectedItems);
 
   const handleSelectionClear = (items) => {
-    // console.log("selection cleared", items);
+    setSelectedItems([]);
   };
 
   return (
@@ -102,6 +93,7 @@ export default function Table() {
       <section className="input-area">
         <label for="column">Colums:</label>
         <input
+          max="12"
           id="column"
           type="number"
           value={columns}
@@ -109,6 +101,7 @@ export default function Table() {
         />
         <label for="rows">Rows</label>
         <input
+          max="12"
           id="rows"
           type="number"
           value={rows}
@@ -135,25 +128,27 @@ export default function Table() {
             gapColumn={gapColumn}
             gapRow={gapRow}
           />
-          <DeselectAll className="selectable-button">
-            <button className="btn-border">
-              <Trashbin /> Reset Grid
-            </button>
-          </DeselectAll>
+
+          <button
+            onClick={() => window.location.reload(false)}
+            className="btn-border"
+          >
+            <Trashbin /> Reset Grid
+          </button>
         </div>
       </section>
 
       <section className="grid-area">
         <SelectableGroup
           className="main"
-          clickClassName="tick"
           // enableDeselect
+          DeselectAll
           tolerance={0}
           globalMouse={false}
           allowClickWithoutSelected={false}
-          duringSelection={handleSelecting}
+          // duringSelection={handleSelecting}
           onSelectionFinish={handleSelectionFinish}
-          onSelectedItemUnmount={handleSelectedItemUnmount}
+          // onSelectedItemUnmount={handleSelectedItemUnmount}
           style={{
             display: "grid",
             gridTemplateColumns: `repeat(${columns}, 1fr)`,
@@ -171,23 +166,6 @@ export default function Table() {
           })}
         </SelectableGroup>
       </section>
-
-      {/* <section className="output">
-        <h1>Output:</h1>
-        <article>
-          <div>
-            <h3>.parent</h3>
-            <p>display: grid;</p>
-            <p>grid-template-columns: repeat({columns}, 1fr);</p>
-            <p>grid-template-row: repeat({rows}, 1fr);</p>
-            <p>grid-column-gap: {gapColumn}px;</p>
-            <p>grid-row-gap: {gapRow}px;</p>
-          </div>
-
-          
-        </article>
-      
-      </section> */}
     </main>
   );
 }
