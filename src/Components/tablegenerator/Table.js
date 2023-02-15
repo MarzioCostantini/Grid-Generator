@@ -91,7 +91,8 @@ export default function Table() {
       <section className="input-area">
         <label htmlFor="column">Colums</label>
         <input
-          max="12"
+          max={12}
+          min={1}
           id="column"
           type="number"
           value={columns}
@@ -99,8 +100,8 @@ export default function Table() {
         />
         <label htmlFor="rows">Rows</label>
         <input
-          max="12"
-          id="rows"
+          max={12}
+          min={1}
           type="number"
           value={rows}
           onChange={(e) => setRow(Number(e.target.value))}
