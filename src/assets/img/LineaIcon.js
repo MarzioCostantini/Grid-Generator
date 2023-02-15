@@ -17,9 +17,9 @@ const LineaIcon = () => {
           d="M27.7,18.675A12,12,0,1,0,12,27.313a2.988,2.988,0,0,0,4-2.825V24a2.987,2.987,0,0,1,3-3h5.775A3,3,0,0,0,27.7,18.675Z"
           fill="none"
           stroke=""
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
         />
         <path
           id="Pfad_76"

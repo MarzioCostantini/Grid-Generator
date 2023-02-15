@@ -13,9 +13,9 @@ const ShadowIcon = () => {
           d="M20,11H6a1,1,0,0,0-1,1V26a1,1,0,0,0,1,1H20a1,1,0,0,0,1-1V12A1,1,0,0,0,20,11Z"
           fill="none"
           stroke=""
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
         />
         <path
           id="Pfad_46"
@@ -23,9 +23,9 @@ const ShadowIcon = () => {
           d="M20,5H18"
           fill="none"
           stroke=""
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
         />
         <path
           id="Pfad_47"
@@ -33,9 +33,9 @@ const ShadowIcon = () => {
           d="M25,5h1a1,1,0,0,1,1,1V7"
           fill="none"
           stroke=""
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
         />
         <path
           id="Pfad_48"
@@ -43,9 +43,9 @@ const ShadowIcon = () => {
           d="M27,14V12"
           fill="none"
           stroke=""
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
         />
         <path
           id="Pfad_49"
@@ -53,9 +53,9 @@ const ShadowIcon = () => {
           d="M25,21h1a1,1,0,0,0,1-1V19"
           fill="none"
           stroke=""
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
         />
         <path
           id="Pfad_50"
@@ -63,9 +63,9 @@ const ShadowIcon = () => {
           d="M13,5H12a1,1,0,0,0-1,1V7"
           fill="none"
           stroke=""
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
         />
       </g>
     </svg>

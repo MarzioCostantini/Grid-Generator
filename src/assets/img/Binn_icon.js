@@ -13,9 +13,9 @@ const BinnIcon = () => {
           d="M27,7H5"
           fill="none"
           stroke=""
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
         />
         <path
           id="Pfad_52"
@@ -23,9 +23,9 @@ const BinnIcon = () => {
           d="M13,13v8"
           fill="none"
           stroke=""
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
         />
         <path
           id="Pfad_53"
@@ -33,9 +33,9 @@ const BinnIcon = () => {
           d="M19,13v8"
           fill="none"
           stroke=""
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
         />
         <path
           id="Pfad_54"
@@ -43,9 +43,9 @@ const BinnIcon = () => {
           d="M25,7V26a1,1,0,0,1-1,1H8a1,1,0,0,1-1-1V7"
           fill="none"
           stroke=""
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
         />
         <path
           id="Pfad_55"
@@ -53,9 +53,9 @@ const BinnIcon = () => {
           d="M21,7V5a2,2,0,0,0-2-2H13a2,2,0,0,0-2,2V7"
           fill="none"
           stroke=""
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
         />
       </g>
     </svg>
