@@ -16,22 +16,6 @@ export default function Modal({
   const [modal, setModal] = useState(false);
   const [copied, setCopied] = useState(false);
 
-  //   useEffect(() => {
-  //     setGridTemplate(
-  //       `.parent { \n display:grid; \n
-  //             grid-template-columns:repeat(${columns}, 1fr); \n
-  //             grid-template-rows:repeat(${rows}, 1fr); \n
-  //             grid-column-gap: ${gapColumn}px; \n
-  //             grid-row-gap:${gapRow}px; \n
-  //         }`
-  //     );
-  //   }, [selectedItems, columns, rows, gapColumn, gapRow]);
-
-  //     for (let i = 0; i < selectedItems.length; i++) {
-  //       const gridarea = `.child${selectedItems[i].id} { grid-area: ${selectedItems[i].gridAreaString} }`;
-  //       return gridarea;
-  //     }
-
   useEffect(() => {
     const gridChilds = selectedItems.map(
       (item) => `.child${item.id} { grid-area: ${item.gridAreaString}; }\n`
@@ -47,8 +31,6 @@ export default function Modal({
         `;
     setGridTemplate(gridTemplate);
   }, [selectedItems, columns, rows, gapColumn, gapRow]);
-
-  console.log(gridTemplate);
 
   const toggleModal = () => {
     setModal(!modal);

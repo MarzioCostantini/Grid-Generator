@@ -82,7 +82,7 @@ export default function Table() {
     setId(id + 1);
   };
 
-  // console.log(selectedItems);
+  console.log(selectedItems);
 
   const handleSelectionClear = (items) => {
     setSelectedItems([]);
@@ -91,7 +91,7 @@ export default function Table() {
   return (
     <main className="content grid-generator">
       <section className="input-area">
-        <label for="column">Colums:</label>
+        <label htmlFor="column">Colums:</label>
         <input
           max="12"
           id="column"
@@ -99,7 +99,7 @@ export default function Table() {
           value={columns}
           onChange={(e) => setColumn(Number(e.target.value))}
         />
-        <label for="rows">Rows</label>
+        <label htmlFor="rows">Rows</label>
         <input
           max="12"
           id="rows"
@@ -107,13 +107,13 @@ export default function Table() {
           value={rows}
           onChange={(e) => setRow(Number(e.target.value))}
         />
-        <label for="gapColumn">Column GAP in PX</label>
+        <label htmlFor="gapColumn">Column GAP in PX</label>
         <input
           value={gapColumn}
           type="number"
           onChange={(e) => setGapColumn(Number(e.target.value))}
         />
-        <label for="gapRow">Row GAP in PX</label>
+        <label htmlFor="gapRow">Row GAP in PX</label>
         <input
           value={gapRow}
           id="gapRow"
