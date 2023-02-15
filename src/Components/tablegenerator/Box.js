@@ -15,7 +15,7 @@ function Box(props) {
           ? `${props.color}`
           : isSelecting
           ? ""
-          : `background: linear-gradient(#e66465, #9198e5);`,
+          : `background: linear-gradient(#e66465, #9198e5)`,
       }}
     ></div>
   );

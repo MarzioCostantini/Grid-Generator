@@ -82,8 +82,6 @@ export default function Table() {
     setId(id + 1);
   };
 
-  console.log(selectedItems);
-
   const handleSelectionClear = (items) => {
     setSelectedItems([]);
   };
