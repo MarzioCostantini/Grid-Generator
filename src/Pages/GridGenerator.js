@@ -6,7 +6,7 @@ const GridGenerator = () => {
   return (
     <>
       <Nav />
-      <Header />
+      <Header text="Grid Generator" />
       <div className="content">
         <Table />
       </div>

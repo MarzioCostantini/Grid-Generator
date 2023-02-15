@@ -6,7 +6,7 @@ const ShadowGenerator = () => {
   return (
     <>
       <Nav />
-      <Header />
+      <Header text="Shadow Generator" />
       <div className="content">
         <ComingSoon />
       </div>

@@ -6,7 +6,7 @@ const LinearGradientGenerator = () => {
   return (
     <>
       <Nav />
-      <Header />
+      <Header text="Gradient Generator" />
       <div className="content">
         <ComingSoon />
       </div>

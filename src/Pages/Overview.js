@@ -6,7 +6,7 @@ const Overview = () => {
   return (
     <>
       <Nav />
-      <Header />
+      <Header text="Overview" />
       <div className="content">
         <ComingSoon />
       </div>
