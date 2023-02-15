@@ -82,7 +82,7 @@ export default function Table() {
     setId(id + 1);
   };
 
-  console.log(selectedItems);
+  // console.log(selectedItems);
 
   const handleSelectionClear = (items) => {
     setSelectedItems([]);
@@ -131,7 +131,7 @@ export default function Table() {
 
           <button
             onClick={() => window.location.reload(false)}
-            className="btn-border"
+            className="btn-border shake"
           >
             <Trashbin /> Reset Grid
           </button>

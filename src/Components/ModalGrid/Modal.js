@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Modal.css";
 import closeIcon from "../../assets/img/close_icon.svg";
 import codeIcon from "../../assets/img/code_icon.svg";
 import copyIcon from "../../assets/img/copy_icon.svg";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 
 export default function Modal({
   selectedItems,
@@ -11,11 +12,50 @@ export default function Modal({
   gapColumn,
   gapRow,
 }) {
+  const [gridTemplate, setGridTemplate] = useState("");
   const [modal, setModal] = useState(false);
+  const [copied, setCopied] = useState(false);
+
+  //   useEffect(() => {
+  //     setGridTemplate(
+  //       `.parent { \n display:grid; \n
+  //             grid-template-columns:repeat(${columns}, 1fr); \n
+  //             grid-template-rows:repeat(${rows}, 1fr); \n
+  //             grid-column-gap: ${gapColumn}px; \n
+  //             grid-row-gap:${gapRow}px; \n
+  //         }`
+  //     );
+  //   }, [selectedItems, columns, rows, gapColumn, gapRow]);
+
+  //     for (let i = 0; i < selectedItems.length; i++) {
+  //       const gridarea = `.child${selectedItems[i].id} { grid-area: ${selectedItems[i].gridAreaString} }`;
+  //       return gridarea;
+  //     }
+
+  useEffect(() => {
+    const childStyles = selectedItems.map(
+      (item) => `.child${item.id} { grid-area: ${item.gridAreaString}; }\n`
+    );
+    const gridTemplate = `.parent { 
+          display: grid; 
+          grid-template-columns: repeat(${columns}, 1fr); 
+          grid-template-rows: repeat(${rows}, 1fr); 
+          grid-column-gap: ${gapColumn}px; 
+          grid-row-gap: ${gapRow}px; 
+        }
+        ${childStyles.join(" ")}
+        `;
+    setGridTemplate(gridTemplate);
+  }, [selectedItems, columns, rows, gapColumn, gapRow]);
+
+  console.log(gridTemplate);
 
   const toggleModal = () => {
     setModal(!modal);
+    setCopied(false);
   };
+
+  //   console.log({ gridTemplate });
 
   return (
     <>
@@ -46,7 +86,7 @@ export default function Modal({
                   <span className="value">repeat({columns}, 1fr)</span>;
                 </p>
                 <p>
-                  <span className="operator">grid-template-row:</span>
+                  <span className="operator">grid-template-rows:</span>
                   <span className="value">repeat({rows}, 1fr)</span>;
                 </p>
                 <p>
@@ -78,10 +118,19 @@ export default function Modal({
                 ))}
               </div>
             </article>
-            <button className="btn-full">
-              <img src={copyIcon} alt="copy icon" />
-              Copy Code
-            </button>
+            <div className="btn-copy-area">
+              {copied ? <p>Copied</p> : null}
+              <CopyToClipboard
+                text={gridTemplate}
+                onCopy={() => setCopied(true)}
+              >
+                <button className="btn-full">
+                  <img src={copyIcon} alt="copy icon" />
+                  Copy Code
+                </button>
+              </CopyToClipboard>
+            </div>
+
             <img
               className="close-modal"
               onClick={toggleModal}

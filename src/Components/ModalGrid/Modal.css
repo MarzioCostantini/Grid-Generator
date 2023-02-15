@@ -88,3 +88,35 @@
 .klammern {
   color: var(--white);
 }
+
+.btn-copy-area {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 30px;
+  margin: 0;
+  margin-bottom: 15px;
+}
+
+.btn-copy-area button {
+  margin: 0;
+}
+
+.btn-copy-area p {
+  color: green;
+  font-weight: bold;
+}
+
+.parent {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+.child1 {
+  grid-area: 2 / 3 / 5 / 4;
+}
+.child2 {
+  grid-area: 4 / 5 / 6 / 6;
+}
