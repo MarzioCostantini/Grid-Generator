@@ -1,0 +1,37 @@
+.card-item {
+  display: inline-block;
+  padding: 30px;
+  width: 20vw;
+  border-radius: 30px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.198);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.card-item h4 {
+  font-size: 26px;
+}
+
+.card-wrapper-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.card-item svg {
+  height: 70px;
+  width: auto;
+  stroke: var(--main-color);
+}
+
+.card-item:hover {
+  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.11);
+  transition: all 0.2s;
+}
+/* 
+CSS Grid Generator
+
+Mit diesem CSS Grid generator kannst du ganz einfach und schnell dir deinen grid layout aufbauen. Gebe auf der Rechten seite einfach deine gewünschten Colums, Rows und gap ein ziehe mit deinen Mauszeiger über die Boxen. Dabei werden diese automatisch markiert. Wenn du nun auf
+
+*/
