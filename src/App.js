@@ -6,6 +6,7 @@ import GridGenerator from "./Pages/GridGenerator";
 import ShadowGenerator from "./Pages/ShadowGenerator";
 import LinearGradientGenerator from "./Pages/LinearGradientGenerator";
 import Overview from "./Pages/Overview";
+import { Helmet } from "react-helmet";
 
 function App() {
   return (
