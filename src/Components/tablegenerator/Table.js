@@ -33,9 +33,28 @@ export default function Table() {
   const [gapColumn, setGapColumn] = useState(0);
   const [gapRow, setGapRow] = useState(0);
 
-  const [itemArray, setItemArray] = useState([]);
-
   const [selectedItems, setSelectedItems] = useState([]);
+
+  const resetGrid = () => {
+    setSelectedItems([]);
+  };
+
+  const onChangeColumns = (e) => {
+    const newNumber = Number(e.target.value);
+    if (newNumber > 12 || newNumber < 0) {
+      return;
+    }
+    setColumn(newNumber);
+    resetGrid();
+  };
+  const onChangeRows = (e) => {
+    const newNumber = Number(e.target.value);
+    if (newNumber > 12 || newNumber < 0) {
+      return;
+    }
+    setRow(newNumber);
+    resetGrid();
+  };
 
   function generateRandomColor() {
     var letters = "0123456789ABCDEF".split("");
@@ -49,13 +68,6 @@ export default function Table() {
   useEffect(() => {
     setKacheln(columns * rows);
   }, [rows, columns]);
-
-  useEffect(() => {
-    setItemArray([]);
-    for (let index = 0; index < kacheln; index++) {
-      setItemArray((value) => [...value, index]);
-    }
-  }, [kacheln]);
 
   const handleSelectionFinish = (items) => {
     const color = generateRandomColor();
@@ -82,9 +94,34 @@ export default function Table() {
     setId(id + 1);
   };
 
-  const handleSelectionClear = (items) => {
-    setSelectedItems([]);
-  };
+  const renderGrid = () => (
+    <SelectableGroup
+      className="main"
+      // enableDeselect
+      DeselectAll
+      tolerance={0}
+      globalMouse={false}
+      allowClickWithoutSelected={false}
+      // duringSelection={handleSelecting}
+      onSelectionFinish={handleSelectionFinish}
+      // onSelectedItemUnmount={handleSelectedItemUnmount}
+      style={{
+        display: "grid",
+        gridTemplateColumns: `repeat(${columns}, 1fr)`,
+        gridTemplateRows: `repeat(${rows}, 1fr)`,
+        columnGap: `${gapColumn}px`,
+        rowGap: `${gapRow}px`,
+      }}
+    >
+      {Array.from(Array(kacheln)).map((_, index) => {
+        const selected = selectedItems.find(({ selectedItem }) =>
+          selectedItem.includes(index)
+        );
+        const color = selected ? selected.colorHex : undefined;
+        return <Box key={index} index={index} color={color} />;
+      })}
+    </SelectableGroup>
+  );
 
   return (
     <main className=" grid-generator">
@@ -95,16 +132,16 @@ export default function Table() {
           min={1}
           id="column"
           type="number"
-          value={columns}
-          onChange={(e) => setColumn(Number(e.target.value))}
+          value={columns.toString()}
+          onChange={onChangeColumns}
         />
         <label htmlFor="rows">Rows</label>
         <input
           max={12}
           min={1}
           type="number"
-          value={rows}
-          onChange={(e) => setRow(Number(e.target.value))}
+          value={rows.toString()}
+          onChange={onChangeRows}
         />
         <label htmlFor="gapColumn">Column GAP in PX</label>
         <input
@@ -137,34 +174,7 @@ export default function Table() {
         </div>
       </section>
 
-      <section className="grid-area">
-        <SelectableGroup
-          className="main"
-          // enableDeselect
-          DeselectAll
-          tolerance={0}
-          globalMouse={false}
-          allowClickWithoutSelected={false}
-          // duringSelection={handleSelecting}
-          onSelectionFinish={handleSelectionFinish}
-          // onSelectedItemUnmount={handleSelectedItemUnmount}
-          style={{
-            display: "grid",
-            gridTemplateColumns: `repeat(${columns}, 1fr)`,
-            gridTemplateRows: `repeat(${rows}, 1fr)`,
-            columnGap: `${gapColumn}px`,
-            rowGap: `${gapRow}px`,
-          }}
-        >
-          {itemArray.map((index) => {
-            const selected = selectedItems.find(({ selectedItem }) =>
-              selectedItem.includes(index)
-            );
-            const color = selected ? selected.colorHex : undefined;
-            return <Box key={index} index={index} color={color} />;
-          })}
-        </SelectableGroup>
-      </section>
+      <section className="grid-area">{renderGrid()}</section>
     </main>
   );
 }
