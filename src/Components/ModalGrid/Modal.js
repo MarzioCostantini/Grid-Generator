@@ -50,8 +50,8 @@ export default function Modal({
           <div className="modal-content">
             <h4>Get the Code</h4>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicingasdfasdfasdf
-              elit. Provident perferendi
+              Here is your CSS Grid Generator code, by the colors of the child
+              elements, you can see which child element it is.
             </p>
             <article className="output">
               <div>

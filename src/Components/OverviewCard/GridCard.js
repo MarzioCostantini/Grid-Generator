@@ -9,10 +9,10 @@ const GridCard = () => {
         <div className="card-wrapper-inner">
           <GridIcon />
           <div>
-            <h4>Grid Generator</h4>
+            <h4> CSS Grid Generator</h4>
             <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet
-              porro unde eius.
+              With this CSS Grid Generator you can easily and quickly build your
+              grid layout.
             </p>
           </div>
         </div>

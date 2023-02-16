@@ -8,6 +8,13 @@ header {
 
 header div {
   display: flex;
-  align-items: center;
-  gap: 15px;
+  flex-direction: column;
 }
+
+header p {
+  font-size: 14px;
+  margin-right: 5vw;
+}
+
+
+/* Hier ist dein CSS Grid Generator Code, anhand der farben von den einzelnen Child elemente, siehst du um welches Child element es sicht handelt. */

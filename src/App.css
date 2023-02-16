@@ -118,6 +118,9 @@ input:focus {
   justify-content: center;
   align-items: center;
 }
+span {
+  font-weight: bold;
+}
 
 .wrapper {
   display: grid;
