@@ -14,11 +14,11 @@ function App() {
         <Routes>
           <Route path="/" element={<Overview />}></Route>
           <Route path="/grid-generator" element={<GridGenerator />}></Route>
-          <Route path="/shadow-generator" element={<ShadowGenerator />}></Route>
+          {/* <Route path="/shadow-generator" element={<ShadowGenerator />}></Route>
           <Route
             path="/gradient-generator"
             element={<LinearGradientGenerator />}
-          ></Route>
+          ></Route> */}
         </Routes>
       </div>
     </BrowserRouter>
