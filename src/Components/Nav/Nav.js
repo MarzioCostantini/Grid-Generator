@@ -42,7 +42,7 @@ const Nav = () => {
       </div>
 
       <div className="bottom-element">
-        <a
+        {/* <a
           target="_blank"
           rel="noreferrer"
           href="https://www.paypal.com/paypalme/marziocostantini"
@@ -53,7 +53,7 @@ const Nav = () => {
             <div className="circle"></div>
             <img src={arrowIcon} alt="icon" />
           </div>
-        </a>
+        </a> */}
         <article>
           <p>PowerRator</p>
           <p>

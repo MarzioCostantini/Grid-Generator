@@ -39,8 +39,6 @@ export default function Table() {
     setSelectedItems([]);
   };
 
-  console.log({ selectedItems });
-
   const onChangeColumns = (e) => {
     const newNumber = Number(e.target.value);
     if (newNumber > 12 || newNumber < 0) {
