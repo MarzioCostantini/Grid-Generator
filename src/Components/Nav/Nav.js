@@ -30,10 +30,10 @@ const Nav = () => {
             <GridIcon />
             <h3>Grid Generator</h3>
           </NavLink>
-          {/* <NavLink to="/shadow-generator" className="nav-item">
+          <NavLink to="/shadow-generator" className="nav-item">
             <ShadowIcon />
             <h3>Shadow Generator</h3>
-          </NavLink> */}
+          </NavLink>
           {/* <NavLink to="/gradient-generator" className="nav-item">
             <LineaIcon />
             <h3>Gradient Generator</h3>

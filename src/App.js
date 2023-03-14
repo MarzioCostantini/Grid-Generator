@@ -22,13 +22,13 @@ function App() {
       <BrowserRouter>
         <div className="wrapper">
           <Routes>
-            <Route path="/" element={<Overview />}></Route>
-            <Route path="/grid-generator" element={<GridGenerator />}></Route>
-            {/* <Route path="/shadow-generator" element={<ShadowGenerator />}></Route>
-          <Route
-            path="/gradient-generator"
-            element={<LinearGradientGenerator />}
-          ></Route> */}
+            <Route path="/" element={<Overview />} />
+            <Route path="/grid-generator" element={<GridGenerator />} />
+            <Route path="/shadow-generator" element={<ShadowGenerator />} />
+            <Route
+              path="/gradient-generator"
+              element={<LinearGradientGenerator />}
+            />
           </Routes>
         </div>
       </BrowserRouter>
