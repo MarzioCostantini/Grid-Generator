@@ -1,7 +1,7 @@
-import ComingSoon from "../Components/comingSoon/ComingSoon";
 import Header from "../Components/Header/Header";
 import Nav from "../Components/Nav/Nav";
 import { Helmet } from "react-helmet";
+import Shadowgenerator from "../Components/shadowgenerator/ShadowgeneratorEditor";
 
 const ShadowGenerator = () => {
   return (
@@ -17,7 +17,7 @@ const ShadowGenerator = () => {
       <Nav />
       <Header text=" CSS Shadow Generator" />
       <div className="content">
-        <ComingSoon />
+        <Shadowgenerator />
       </div>
     </>
   );
