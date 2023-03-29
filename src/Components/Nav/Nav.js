@@ -33,6 +33,7 @@ const Nav = () => {
           <NavLink to="/shadow-generator" className="nav-item">
             <ShadowIcon />
             <h3>Shadow Generator</h3>
+            <p className="new">NEW</p>
           </NavLink>
           {/* <NavLink to="/gradient-generator" className="nav-item">
             <LineaIcon />

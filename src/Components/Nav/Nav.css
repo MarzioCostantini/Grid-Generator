@@ -95,3 +95,13 @@ svg {
 .bottom-element article p:first-child {
   font-weight: 900;
 }
+
+.new {
+  font-family: CarioBold, Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  color: #e328af;
+  font-weight: bold;
+  background-color: #ffcff2;
+  border-radius: 15px;
+  padding: 3px 8px;
+}

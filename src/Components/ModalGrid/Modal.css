@@ -34,7 +34,7 @@
   padding: 14px 28px;
   border-radius: 3px;
   max-width: 600px;
-  min-width: 300px;
+  min-width: 500px;
   z-index: 15;
   border-radius: 15px;
 }
@@ -83,6 +83,7 @@
 .value {
   color: #f89584;
   margin: 0 0 0 5px;
+  word-spacing: 3px;
 }
 
 .klammern {
